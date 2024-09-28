@@ -36,10 +36,12 @@ public class LoginCtl extends HttpServlet {
 		String password = req.getParameter("password");
 		String op = req.getParameter("operation");
 		
+		HttpSession session = req.getSession();
+		
 		if(op.equals("SignIn")) {
 		UserModel model = new UserModel();
 		
-		HttpSession session = req.getSession();
+		
 
 		try {
 			UserBean bean = model.Authenticate(loginId, password);
